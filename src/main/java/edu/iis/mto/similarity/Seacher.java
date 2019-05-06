@@ -7,6 +7,10 @@ public class Seacher implements SequenceSearcher {
 
     private static int licznik;
 
+    public Seacher() {
+        licznik = 0;
+    }
+
     @Override
     public SearchResult search(int key, int[] seq) {
         licznik++;

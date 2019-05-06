@@ -51,12 +51,36 @@ public class Test {
     }
 
     @org.junit.Test
+    public void DublerSeacherNiePokrywaSie() {
+        Seacher szukacz = new Seacher();
+        SimilarityFinder test2 = new SimilarityFinder(szukacz);
+        double result = test2.calculateJackardSimilarity(emptySeq, seq);
+        assertThat(result, is(0.0));
+    }
+
+    @org.junit.Test
+    public void DublerSeacherPokrywaSie() {
+        Seacher szukacz = new Seacher();
+        SimilarityFinder test2 = new SimilarityFinder(szukacz);
+        double result = test2.calculateJackardSimilarity(seq, seq);
+        assertThat(result, is(1.0));
+    }
+
+    @org.junit.Test
+    public void DublerSeacherWPolowieSiePokrywa() {
+        Seacher szukacz = new Seacher();
+        SimilarityFinder test2 = new SimilarityFinder(szukacz);
+        double result = test2.calculateJackardSimilarity(saq, seq);
+        assertThat(result, is(0.5));
+    }
+
+    @org.junit.Test
     public void ileRazyZostaloUzyte() {
         Seacher szukacz = new Seacher();
         SimilarityFinder test2 = new SimilarityFinder(szukacz);
         test2.calculateJackardSimilarity(seq, seq);
         int result = szukacz.getLicznik();
-        assertThat(result, is(25));
+        assertThat(result, is(10));
     }
 
 }
